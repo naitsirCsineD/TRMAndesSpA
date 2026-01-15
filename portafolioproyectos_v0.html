@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Proyectos | TRM ANDES SpA</title>
+    <style>
+        /* Estilos Base (Coherentes con tus otras páginas) */
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        
+        /* Header y Navegación */
+        header { background: #002244; color: white; padding: 30px 20px; text-align: center; }
+        nav { background: #00152a; padding: 15px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #d4af37; }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            color: #002244;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* EL MOSAICO (CSS Grid) */
+        .mosaico-grid {
+            display: grid;
+            /* Esto crea columnas automáticas que miden mínimo 300px */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 20px; /* Espacio entre tarjetas */
+        }
+
+        /* Estilo de la Tarjeta de Proyecto */
+        .proyecto-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden; /* Para que la imagen no se salga al hacer zoom */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Efecto al pasar el mouse por la tarjeta */
+        .proyecto-card:hover {
+            transform: translateY(-5px); /* Sube un poco */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Imagen del proyecto */
+        .proyecto-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformarse */
+            transition: transform 0.5s ease;
+        }
+
+        .proyecto-card:hover img {
+            transform: scale(1.1); /* Zoom suave en la imagen */
+        }
+
+        /* Contenido de texto */
+        .card-content {
+            padding: 20px;
+            position: relative;
+            background: white;
+            z-index: 1;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: #002244;
+            font-size: 1.2rem;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Exploración y Desarrollo</h1>
+        <p>Nuestro historial de descubrimientos y propiedades activas</p>
+    </header>
+
+    <nav>
+        <a href="index.html">← Volver al Inicio</a>
+        <a href="contacto.html">Contactar Interés</a>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Portafolio de Proyectos Vigentes</h2>
+
+        <div class="mosaico-grid">
+            
+            <div class="proyecto-card">
+                <img src="https://via.placeholder.com/400x300/553311/ffffff?text=Mina+Norte" alt="Proyecto Cobre">
+                <div class="card-content">
+                    <span class="tag">Cobre / Oro</span>
+                    <h3>Proyecto Andino Norte</h3>
+                    <p>Ubicado en la franja de Maricunga. Exploración avanzada con sondajes positivos.</p>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <img src="https://via.placeholder.com/400x300/334455/ffffff?text=Cantera+Sur" alt="Cantera Granito">
+                <div class="card-content">
+                    <span class="tag">Rocas Ornamentales</span>
+                    <h3>Cantera Valle Azul</h3>
+                    <p>Yacimiento de granito azul de alta ley para exportación. Permisos ambientales aprobados.</p>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <img src="https://via.placeholder.com/400x300/777777/ffffff?text=Litio+Salar" alt="Litio">
+                <div class="card-content">
+                    <span class="tag">Litio / Sales</span>
+                    <h3>Prospecto Salar III</h3>
+                    <p>Propiedad de 2.000 hectáreas en zona de salares pre-cordilleranos.</p>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <img src="https://via.placeholder.com/400x300/aa8800/ffffff?text=Hierro" alt="Hierro">
+                <div class="card-content">
+                    <span class="tag">Hierro</span>
+                    <h3>Distrito Ferroso IV</h3>
+                    <p>Anomalía magnética confirmada. Potencial para minería a cielo abierto.</p>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <img src="https://via.placeholder.com/400x300/226622/ffffff?text=Polimetalico" alt="Polimetálico">
+                <div class="card-content">
+                    <span class="tag">Polimetálico</span>
+                    <h3>Proyecto Veta Madre</h3>
+                    <p>Sistema de vetas de alta ley (Ag-Pb-Zn). Ideal para pequeña minería mecanizada.</p>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <img src="https://via.placeholder.com/400x300/992222/ffffff?text=Sondaje" alt="Consultoría">
+                <div class="card-content">
+                    <span class="tag">Servicios</span>
+                    <h3>Campaña Sondaje 2025</h3>
+                    <p>Registro de nuestra última campaña de perforación diamantina en la región.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TRM ANDES SpA | Ingeniería de Minas y Geología</p>
+    </footer>
+
+</body>
+</html>
