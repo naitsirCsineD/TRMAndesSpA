@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto | TRM ANDES SpA</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; color: #333; background: #f4f4f4; }
+        header { background: #002244; color: white; padding: 20px; text-align: center; }
+        nav { background: #00152a; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input, select, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}
+        button { width: 100%; padding: 10px; background: #d4af37; color: white; border: none; font-weight: bold; cursor: pointer; }
+        button:hover { background: #b5952f; }
+    </style>
+</head>
+<body>
+    <header><h1>Contacto</h1></header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="propiedades.html">Propiedades</a>
+    </nav>
+    <div class="container">
+        <h2>Envíenos un mensaje</h2>
+        <form action="#" method="post">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required>
+            
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            
+            <label>Interés en:</label>
+            <select name="interes">
+                <option value="compra">Comprar Propiedad</option>
+                <option value="inversion">Inversión / Acciones</option>
+                <option value="servicios">Servicios de Exploración</option>
+                <option value="otro">Otro</option>
+            </select>
+            
+            <label>Mensaje:</label>
+            <textarea name="mensaje" rows="4"></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
