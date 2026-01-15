@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Andino Norte | TRM ANDES SpA</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; color: #333; margin: 0; }
+        
+        /* Navbar */
+        .navbar { background: #002244; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .navbar a { color: white; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+        .navbar a:hover { text-decoration: underline; }
+
+        /* Contenedor tipo "Dashboard" */
+        .main-wrapper { 
+            max-width: 1100px; margin: 30px auto; 
+            display: grid; grid-template-columns: 2fr 1fr; gap: 30px; padding: 0 20px; 
+        }
+
+        /* Hero Image del Proyecto */
+        .project-hero {
+            grid-column: 1 / -1;
+            height: 350px;
+            background-image: url('https://via.placeholder.com/1200x400/553311/ffffff?text=Vista+Panoramica+Andino+Norte');
+            background-size: cover; background-position: center;
+            border-radius: 10px; position: relative;
+            display: flex; align-items: flex-end;
+        }
+        .hero-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            width: 100%; padding: 30px; border-radius: 0 0 10px 10px; color: white;
+        }
+        .hero-overlay h1 { margin: 0; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-overlay p { margin: 5px 0 0; font-size: 1.2rem; color: #d4af37; font-weight: bold; }
+
+        /* Cajas de Contenido */
+        .content-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 25px; }
+        .content-box h2 { border-bottom: 2px solid #eee; padding-bottom: 15px; margin-top: 0; color: #002244; font-size: 1.5rem; }
+
+        /* Detalles Técnicos en Grid */
+        .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .tech-item label { display: block; color: #777; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tech-item span { display: block; font-weight: 600; font-size: 1.1rem; color: #333; }
+
+        /* Barra Lateral (Highlights) */
+        .sidebar-box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .highlight-list { list-style: none; padding: 0; }
+        .highlight-list li { 
+            padding: 12px 0; border-bottom: 1px solid #f0f0f0; 
+            display: flex; align-items: center; gap: 10px; 
+        }
+        .highlight-list li:last-child { border-bottom: none; }
+        .check-icon { color: #28a745; font-weight: bold; }
+
+        /* Botón de Acción */
+        .cta-button {
+            display: block; width: 100%; padding: 15px; text-align: center;
+            background: #d4af37; color: white; font-weight: bold; text-decoration: none;
+            border-radius: 5px; transition: 0.3s; font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover { background: #b5952f; transform: translateY(-2px); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-wrapper { grid-template-columns: 1fr; }
+            .project-hero { height: 250px; }
+            .hero-overlay h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <span>TRM ANDES SpA | Portafolio</span>
+        <a href="proyectos.html">← Volver a Proyectos</a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <div class="project-hero">
+            <div class="hero-overlay">
+                <h1>Proyecto Andino Norte</h1>
+                <p>Exploración Avanzada de Cobre y Oro (Pórfido / Epitermal)</p>
+            </div>
+        </div>
+
+        <div class="left-col">
+            
+            <div class="content-box">
+                <h2>Resumen Ejecutivo</h2>
+                <p style="line-height: 1.6; color: #555;">
+                    El Proyecto Andino Norte se ubica en la prestigiosa <strong>Franja de Maricunga</strong>, conocida por albergar depósitos de clase mundial.
+                    TRM ANDES ha completado la fase inicial de prospección, identificando un sistema de vetas epitermales de alta sulfuración sobreimpuesto a un pórfido de cobre en profundidad.
+                    Actualmente buscamos un socio estratégico para financiar la campaña de perforación Fase II (2.000m).
+                </p>
+            </div>
+
+            <div class="content-box">
+                <h2>Especificaciones Técnicas</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <label>Ubicación</label>
+                        <span>III Región, Chile (3.800 msnm)</span>
+                    </div>
+                    <div class="tech-item">
+                        <label>Tipo de Yacimiento</label>
+                        <span>Pórfido Au-Cu / Epitermal</span>
+                    </div>
+                    <div class="tech-item">
+                        <label>Propiedad Minera</label>
+                        <span>1.200 Hectáreas (Constituidas)</span>
+                    </div>
+                    <div class="tech-item">
+                        <label>Estado de Avance</label>
+                        <span>Geofísica IP y Sondajes RC (500m)</span>
+                    </div>
+                    <div class="tech-item">
+                        <label>Geología</label>
+                        <span>Alteración argílica avanzada con sílice vuggy</span>
+                    </div>
+                    <div class="tech-item">
+                        <label>Accesibilidad</label>
+                        <span>Camino exploratorio habilitado 4x4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <h2>Galería de Testigos y Mapas</h2>
+                <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
+                    <img src="https://via.placeholder.com/200x150?text=Mapa+Geo" style="border-radius: 5px;">
+                    <img src="https://via.placeholder.com/200x150?text=Testigos+Sondaje" style="border-radius: 5px;">
+                    <img src="https://via.placeholder.com/200x150?text=Trinchera" style="border-radius: 5px;">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right-col">
+            
+            <div class="sidebar-box" style="border-top: 4px solid #d4af37;">
+                <h3 style="margin-top: 0; color: #002244;">Oportunidad de Inversión</h3>
+                <p style="font-size: 0.9rem; color: #666;">Buscamos socio para Joint Venture o contrato de opción (Earn-in).</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <span style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888;">Inversión Estimada Fase II</span>
+                    <span style="display: block; font-size: 1.8rem; font-weight: bold; color: #333;">US$ 1.5M</span>
+                </div>
+                <a href="contacto.html" class="cta-button">Me interesa participar</a>
+            </div>
+
+            <div class="sidebar-box">
+                <h3 style="margin-top: 0; font-size: 1.1rem;">Puntos Clave</h3>
+                <ul class="highlight-list">
+                    <li><span class="check-icon">✓</span> 100% Propiedad de TRM ANDES</li>
+                    <li><span class="check-icon">✓</span> Sin compromisos con comunidades</li>
+                    <li><span class="check-icon">✓</span> Agua industrial disponible cerca</li>
+                    <li><span class="check-icon">✓</span> NI 43-101 en preparación</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-box">
+                <h4 style="margin: 0 0 10px 0;">Contacto Geología</h4>
+                <p style="margin: 0; font-size: 0.9rem; color: #555;">
+                    <strong>Ing. Juan Pérez</strong><br>
+                    Gerente de Exploraciones<br>
+                    <a href="mailto:geo@trmandes.cl" style="color: #002244;">geo@trmandes.cl</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
