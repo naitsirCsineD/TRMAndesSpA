@@ -16,7 +16,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
-        /* SECCIÓN: DIAGRAMA DE PROCESO */
+        /* --- ESTILO DEL DIAGRAMA DE PROCESO --- */
         .process-section {
             background: white;
             padding: 40px;
@@ -37,7 +37,7 @@
             position: relative;
         }
 
-        /* Línea conectora (solo visible en pantallas grandes) */
+        /* Línea conectora gris (solo en PC) */
         @media (min-width: 768px) {
             .process-steps::before {
                 content: '';
@@ -69,20 +69,26 @@
             justify-content: center;
             margin: 0 auto 15px;
             font-size: 1.5rem;
-            border: 4px solid white;
+            border: 4px solid white; /* Borde blanco para cortar la línea gris */
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-weight: bold;
         }
 
         .step h4 { margin: 10px 0 5px; color: #d4af37; font-size: 1.1rem; }
         .step p { font-size: 0.85rem; color: #666; line-height: 1.4; padding: 0 10px; }
 
-        /* SECCIÓN: MOSAICO DE PROPIEDADES */
+        /* --- ESTILO DEL MOSAICO (GRID) --- */
         .grid-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .filters button { background: none; border: 1px solid #ccc; padding: 5px 15px; border-radius: 20px; cursor: pointer; color: #666; margin-left: 5px; }
-        .filters button.active { background: #002244; color: white; border-color: #002244; }
+        
+        .filters button { 
+            background: none; border: 1px solid #ccc; padding: 5px 15px; 
+            border-radius: 20px; cursor: pointer; color: #666; margin-left: 5px; transition: 0.3s;
+        }
+        .filters button:hover, .filters button.active { background: #002244; color: white; border-color: #002244; }
 
         .properties-grid {
             display: grid;
+            /* Columnas automáticas: mínimo 280px de ancho */
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
@@ -93,10 +99,10 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            text-decoration: none; /* Para el enlace */
+            text-decoration: none; /* Quita el subrayado del enlace */
             color: inherit;
-            display: block; /* Importante para que el enlace cubra toda la tarjeta */
+            display: block; 
+            position: relative;
         }
 
         .prop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
@@ -111,8 +117,7 @@
 
         .status-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 10px; right: 10px;
             background: rgba(0, 34, 68, 0.9);
             color: white;
             padding: 4px 10px;
@@ -124,15 +129,12 @@
         .prop-info { padding: 20px; }
         .prop-type { font-size: 0.8rem; color: #d4af37; font-weight: bold; text-transform: uppercase; }
         .prop-title { margin: 5px 0; font-size: 1.2rem; color: #002244; }
-        .prop-loc { font-size: 0.9rem; color: #777; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; }
+        .prop-loc { font-size: 0.9rem; color: #777; margin-bottom: 15px; }
         
         .prop-specs {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            font-size: 0.85rem;
-            color: #555;
+            display: flex; justify-content: space-between;
+            border-top: 1px solid #eee; padding-top: 15px;
+            font-size: 0.85rem; color: #555;
         }
 
         footer { background: #333; color: white; text-align: center; padding: 30px; margin-top: 60px; }
@@ -156,6 +158,9 @@
         
         <section class="process-section">
             <h2 class="process-title">Ruta de Adquisición</h2>
+            
+            
+
             <div class="process-steps">
                 <div class="step">
                     <div class="step-icon">1</div>
@@ -207,18 +212,19 @@
     <script>
         const contenedor = document.getElementById('gridPropiedades');
         
-        // Datos simulados para 20 propiedades
+        // Datos base para generar variaciones
         const minerales = ['Cobre / Oro', 'Litio', 'Hierro', 'Plata', 'Cobre', 'Cuarzo', 'Oro', 'Polimetálico', 'Cobre', 'Litio'];
         const ubicaciones = ['Copiapó, III Región', 'Antofagasta, II Región', 'Vallenar, III Región', 'Coquimbo, IV Región', 'La Serena, IV Región'];
         const estados = ['Exploración Avanzada', 'Greenfield', 'Brownfield', 'En Producción'];
 
-        // Función para crear una tarjeta HTML
+        // Función que crea el HTML de una tarjeta
         function crearTarjeta(id, nombre, mineral, loc, has, estado) {
-            // Alternar imágenes placeholder según mineral
+            
+            // Colores de imagen según mineral (simulado)
             let colorImg = mineral.includes('Cobre') ? 'c65c39' : (mineral.includes('Litio') ? 'e0e0e0' : 'd4af37');
             let imgUrl = `https://via.placeholder.com/400x250/${colorImg}/ffffff?text=${mineral}`;
 
-            // Aquí definimos el enlace. Si es la propiedad 1, va a propiedad1.html, sino vuelve a #
+            // Lógica de enlace: Si es el ID 1, va a propiedad1.html, sino no hace nada (#)
             let link = id === 1 ? 'propiedad1.html' : '#';
 
             return `
@@ -239,19 +245,23 @@
             `;
         }
 
-        // Generar 20 tarjetas
+        // Bucle para crear 20 tarjetas
         let htmlContent = '';
         for (let i = 1; i <= 20; i++) {
-            // Datos aleatorios para dar variedad
+            // Seleccionar datos cíclicos y aleatorios
             let mineral = minerales[i % 10];
             let loc = ubicaciones[i % 5];
             let estado = estados[i % 4];
-            let has = (Math.random() * 2000 + 100).toFixed(0);
-            let nombre = `Mina ${['San José', 'El Peñón', 'Los Andes', 'Santa Clara', 'El Tesoro', 'La Esperanza'][i%6]} ${i}`;
+            let has = (Math.random() * 2000 + 100).toFixed(0); // Hectáreas aleatorias
+            
+            // Nombres de mina inventados
+            let baseNombres = ['San José', 'El Peñón', 'Los Andes', 'Santa Clara', 'El Tesoro', 'La Esperanza'];
+            let nombre = `Mina ${baseNombres[i % 6]} ${i}`;
 
             htmlContent += crearTarjeta(i, nombre, mineral, loc, has, estado);
         }
 
+        // Insertar todo el HTML generado en el contenedor
         contenedor.innerHTML = htmlContent;
     </script>
 
