@@ -3,35 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propiedades | TRM ANDES SpA</title>
+    <title>Catálogo de Propiedades | TRM ANDES SpA</title>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; color: #333; }
-        header { background: #002244; color: white; padding: 20px; text-align: center; }
-        nav { background: #00152a; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; }
-        .container { max-width: 800px; margin: 40px auto; padding: 20px; }
-        .propiedad-item { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
-        .btn-back { display: block; width: 150px; margin: 20px auto; text-align: center; background: #333; color: white; padding: 10px; text-decoration: none; border-radius: 5px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
+        
+        /* Header */
+        header { background: #002244; color: white; padding: 40px 20px; text-align: center; }
+        header h1 { margin: 0; font-weight: 300; letter-spacing: 2px; }
+        nav { background: #00152a; padding: 15px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        nav a:hover { color: #d4af37; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+        /* SECCIÓN: DIAGRAMA DE PROCESO */
+        .process-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .process-title { color: #002244; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+
+        /* Línea conectora (solo visible en pantallas grandes) */
+        @media (min-width: 768px) {
+            .process-steps::before {
+                content: '';
+                position: absolute;
+                top: 30px;
+                left: 50px;
+                right: 50px;
+                height: 2px;
+                background: #e0e0e0;
+                z-index: 0;
+            }
+        }
+
+        .step {
+            flex: 1;
+            min-width: 150px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #002244;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .step h4 { margin: 10px 0 5px; color: #d4af37; font-size: 1.1rem; }
+        .step p { font-size: 0.85rem; color: #666; line-height: 1.4; padding: 0 10px; }
+
+        /* SECCIÓN: MOSAICO DE PROPIEDADES */
+        .grid-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .filters button { background: none; border: 1px solid #ccc; padding: 5px 15px; border-radius: 20px; cursor: pointer; color: #666; margin-left: 5px; }
+        .filters button.active { background: #002244; color: white; border-color: #002244; }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .prop-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none; /* Para el enlace */
+            color: inherit;
+            display: block; /* Importante para que el enlace cubra toda la tarjeta */
+        }
+
+        .prop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+        .prop-img {
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 34, 68, 0.9);
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .prop-info { padding: 20px; }
+        .prop-type { font-size: 0.8rem; color: #d4af37; font-weight: bold; text-transform: uppercase; }
+        .prop-title { margin: 5px 0; font-size: 1.2rem; color: #002244; }
+        .prop-loc { font-size: 0.9rem; color: #777; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; }
+        
+        .prop-specs {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        footer { background: #333; color: white; text-align: center; padding: 30px; margin-top: 60px; }
+
     </style>
 </head>
 <body>
-    <header><h1>Propiedades Disponibles</h1></header>
+
+    <header>
+        <h1>Mercado de Concesiones</h1>
+        <p>Oportunidades de inversión en minería metálica y no metálica</p>
+    </header>
+
     <nav>
-        <a href="index.html">Inicio</a>
+        <a href="index.html">← Inicio</a>
         <a href="proyectos.html">Proyectos</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="contacto.html">Vender mi Propiedad</a>
     </nav>
+
     <div class="container">
-        <h2>Catálogo de Concesiones</h2>
-        <div class="propiedad-item">
-            <h3>Concesión Norte 1</h3>
-            <p>Ubicación: Región de Atacama. Potencial: Cobre/Oro. Estado: Mensura completa.</p>
+        
+        <section class="process-section">
+            <h2 class="process-title">Ruta de Adquisición</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h4>Selección</h4>
+                    <p>Identifique el activo de interés en nuestro catálogo online.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h4>NDA & Datos</h4>
+                    <p>Firma de confidencialidad para acceso al Data Room técnico.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h4>Visita</h4>
+                    <p>Inspección en terreno y revisión de testigos con geólogos.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h4>Legal</h4>
+                    <p>Estudio de títulos y vigencia de la patente minera.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">5</div>
+                    <h4>Cierre</h4>
+                    <p>Escritura pública de compraventa y traspaso.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-header">
+            <h2 style="color: #002244; margin: 0;">Propiedades Destacadas</h2>
+            <div class="filters">
+                <button class="active">Todos</button>
+                <button>Cobre</button>
+                <button>Litio</button>
+                <button>Oro</button>
+            </div>
         </div>
-        <div class="propiedad-item">
-            <h3>Proyecto Cantera Sur</h3>
-            <p>Ubicación: Coquimbo. Potencial: Áridos y Rocas Ornamentales.</p>
-        </div>
-        <a href="index.html" class="btn-back">Volver al Inicio</a>
+
+        <div class="properties-grid" id="gridPropiedades">
+            </div>
+
     </div>
+
+    <footer>
+        <p>&copy; 2026 TRM ANDES SpA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const contenedor = document.getElementById('gridPropiedades');
+        
+        // Datos simulados para 20 propiedades
+        const minerales = ['Cobre / Oro', 'Litio', 'Hierro', 'Plata', 'Cobre', 'Cuarzo', 'Oro', 'Polimetálico', 'Cobre', 'Litio'];
+        const ubicaciones = ['Copiapó, III Región', 'Antofagasta, II Región', 'Vallenar, III Región', 'Coquimbo, IV Región', 'La Serena, IV Región'];
+        const estados = ['Exploración Avanzada', 'Greenfield', 'Brownfield', 'En Producción'];
+
+        // Función para crear una tarjeta HTML
+        function crearTarjeta(id, nombre, mineral, loc, has, estado) {
+            // Alternar imágenes placeholder según mineral
+            let colorImg = mineral.includes('Cobre') ? 'c65c39' : (mineral.includes('Litio') ? 'e0e0e0' : 'd4af37');
+            let imgUrl = `https://via.placeholder.com/400x250/${colorImg}/ffffff?text=${mineral}`;
+
+            // Aquí definimos el enlace. Si es la propiedad 1, va a propiedad1.html, sino vuelve a #
+            let link = id === 1 ? 'propiedad1.html' : '#';
+
+            return `
+                <a href="${link}" class="prop-card">
+                    <div class="prop-img" style="background-image: url('${imgUrl}');">
+                        <span class="status-badge">${estado}</span>
+                    </div>
+                    <div class="prop-info">
+                        <div class="prop-type">${mineral}</div>
+                        <h3 class="prop-title">${nombre}</h3>
+                        <div class="prop-loc">📍 ${loc}</div>
+                        <div class="prop-specs">
+                            <span>Area: ${has} ha</span>
+                            <span>ID: #${1000 + id}</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        // Generar 20 tarjetas
+        let htmlContent = '';
+        for (let i = 1; i <= 20; i++) {
+            // Datos aleatorios para dar variedad
+            let mineral = minerales[i % 10];
+            let loc = ubicaciones[i % 5];
+            let estado = estados[i % 4];
+            let has = (Math.random() * 2000 + 100).toFixed(0);
+            let nombre = `Mina ${['San José', 'El Peñón', 'Los Andes', 'Santa Clara', 'El Tesoro', 'La Esperanza'][i%6]} ${i}`;
+
+            htmlContent += crearTarjeta(i, nombre, mineral, loc, has, estado);
+        }
+
+        contenedor.innerHTML = htmlContent;
+    </script>
+
 </body>
 </html>
