@@ -18,15 +18,15 @@
         }
         header h1 { margin: 0; font-size: 3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
         header p { font-size: 1.2em; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
-        nav { display: flex; justify-content: center; gap: 20px; padding: 10px; background: #002244; }
+        nav { display: flex; justify-content: center; gap: 20px; padding: 10px; background: #002244; flex-wrap: wrap; }
         nav a { color: white; text-decoration: none; font-weight: bold; }
         nav a:hover { text-decoration: underline; }
         .hero { background: #f4f4f4; padding: 60px 20px; text-align: center; }
         .btn { background: #d4af37; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px;}
         .btn:hover { background: #b5952f; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
         footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
@@ -40,13 +40,13 @@
 <nav>
     <a href="propiedades.html">Propiedades</a>
     <a href="proyectos.html">Proyectos</a>
-    <a href="inversionistas.html">Inversionistas</a>
+    <a href="servicios.html">Servicios</a> <a href="inversionistas.html">Inversionistas</a>
     <a href="contacto.html">Contacto</a>
 </nav>
 
 <section class="hero">
     <h2>Descubra el Potencial Geológico de Chile</h2>
-    <p>Adquirimos, exploramos y valorizamos concesiones mineras estratégicas.</p>
+    <p>Adquisimos, exploramos y valorizamos concesiones mineras estratégicas.</p>
     <br>
     <a href="contacto.html" class="btn">Solicitar Portafolio de Inversión</a>
 </section>
@@ -54,20 +54,34 @@
 <div class="container">
     <div class="grid">
         <div class="card">
-            <h3>Adquisición de Propiedades</h3>
-            <p>Venta directa de concesiones mineras con potencial explorado.</p>
+            <div>
+                <h3>Adquisición de Propiedades</h3>
+                <p>Venta directa de concesiones mineras con potencial explorado.</p>
+            </div>
             <a href="propiedades.html" class="btn">Ver Propiedades</a>
         </div>
 
         <div class="card">
-            <h3>Joint Venture & Proyectos</h3>
-            <p>Invierta capital en campañas de exploración específicas.</p>
+            <div>
+                <h3>Joint Venture & Proyectos</h3>
+                <p>Invierta capital en campañas de exploración específicas.</p>
+            </div>
             <a href="portafolioproyectos_v0.html" class="btn">Ver Proyectos</a>
         </div>
 
         <div class="card">
-            <h3>Capital Accionario</h3>
-            <p>Oportunidad de adquirir participación en nuestra sociedad.</p>
+            <div>
+                <h3>Tasación y Servicios Técnicos</h3>
+                <p>Valorización de recursos y generación de reportes técnicos, desde potencial geológico hasta categorías de alta precisión.</p>
+            </div>
+            <a href="servicios.html" class="btn">Nuestros Servicios</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Capital Accionario</h3>
+                <p>Oportunidad de adquirir participación en nuestra sociedad.</p>
+            </div>
             <a href="inversionistas.html" class="btn">Info Inversionistas</a>
         </div>
     </div>
@@ -79,4 +93,3 @@
 
 </body>
 </html>
-
