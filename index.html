@@ -6,34 +6,27 @@
     <title>Inversión Minera | TRM ANDES SpA</title>
     <style>
         body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        
-        /* MODIFICACIÓN AQUÍ: Header con imagen de fondo */
         header { 
-            /* Se usa un gradiente semitransparente sobre la imagen para que el texto se lea bien */
             background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.4)), 
                         url('cordilleradeandes-2-800-l.jpg');
-            
-            /* Estas 3 líneas aseguran que cubra todo el ancho y se centre */
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
-            
             color: white; 
-            padding: 80px 20px; /* Aumenté el padding para que se vea más imagen */
+            padding: 80px 20px;
             text-align: center; 
         }
-
-        /* Añadí sombra al texto para mayor contraste con las montañas */
         header h1 { margin: 0; font-size: 3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
         header p { font-size: 1.2em; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
-
         nav { display: flex; justify-content: center; gap: 20px; padding: 10px; background: #002244; }
         nav a { color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
         .hero { background: #f4f4f4; padding: 60px 20px; text-align: center; }
-        .btn { background: #d4af37; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn { background: #d4af37; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px;}
+        .btn:hover { background: #b5952f; }
         .container { max-width: 1000px; margin: auto; padding: 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
         footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
@@ -45,43 +38,43 @@
 </header>
 
 <nav>
-    <a href="#propiedades">Propiedades</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#acciones">Inversionistas</a>
-    <a href="#contacto">Contacto</a>
+    <a href="propiedades.html">Propiedades</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="inversionistas.html">Inversionistas</a>
+    <a href="contacto.html">Contacto</a>
 </nav>
 
 <section class="hero">
     <h2>Descubra el Potencial Geológico de Chile</h2>
-    <p>Adquirimos, exploramos y valorizamos concesiones mineras estratégicas. Participe en el futuro de la minería.</p>
+    <p>Adquirimos, exploramos y valorizamos concesiones mineras estratégicas.</p>
     <br>
-    <a href="#contacto" class="btn">Solicitar Portafolio de Inversión</a>
+    <a href="contacto.html" class="btn">Solicitar Portafolio de Inversión</a>
 </section>
 
 <div class="container">
     <div class="grid">
-        <div class="card" id="propiedades">
+        <div class="card">
             <h3>Adquisición de Propiedades</h3>
-            <p>Venta directa de concesiones mineras con potencial explorado y estudios preliminares listos para desarrollo.</p>
+            <p>Venta directa de concesiones mineras con potencial explorado.</p>
+            <a href="propiedades.html" class="btn">Ver Propiedades</a>
         </div>
 
-        <div class="card" id="proyectos">
+        <div class="card">
             <h3>Joint Venture & Proyectos</h3>
-            <p>Invierta capital en campañas de exploración específicas y comparta los beneficios del descubrimiento.</p>
+            <p>Invierta capital en campañas de exploración específicas.</p>
+            <a href="proyectos.html" class="btn">Ver Proyectos</a>
         </div>
 
-        <div class="card" id="acciones">
+        <div class="card">
             <h3>Capital Accionario</h3>
-            <p>Sea parte de TRM ANDES SpA. Oportunidad de adquirir participación en nuestra sociedad por acciones.</p>
+            <p>Oportunidad de adquirir participación en nuestra sociedad.</p>
+            <a href="inversionistas.html" class="btn">Info Inversionistas</a>
         </div>
     </div>
 </div>
 
-<footer id="contacto">
-    <h3>Contáctenos</h3>
-    <p>Para más detalles sobre nuestro portafolio y oportunidades de negocio.</p>
-    <p>Email: contacto@trmandes.cl | Ubicación: La Serena, Región de Coquimbo</p>
-    <p>&copy; 2026 TRM ANDES SpA</p>
+<footer>
+    <p>&copy; 2026 TRM ANDES SpA | La Serena, Chile</p>
 </footer>
 
 </body>
