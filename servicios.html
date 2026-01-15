@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios y Valorización | TRM ANDES SpA</title>
+    <style>
+        /* --- ESTILOS GENERALES (Iguales al Index) --- */
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        
+        header { 
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.6)), 
+                        url('cordilleradeandes-2-800-l.jpg'); /* Asegúrate de tener la imagen o cambiarla */
+            background-size: cover; 
+            background-position: center;
+            color: white; 
+            padding: 60px 20px;
+            text-align: center; 
+        }
+        
+        header h1 { margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+        
+        nav { display: flex; justify-content: center; gap: 20px; padding: 15px; background: #002244; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 1.1em; }
+        nav a:hover { text-decoration: underline; color: #d4af37; }
+
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; color: #002244; }
+        .section-title h2 { font-size: 2em; margin-bottom: 10px; }
+        .section-title p { color: #666; max-width: 700px; margin: auto; }
+
+        /* --- ESTILOS DEL DIAGRAMA DE FLUJO (PROCESS FLOW) --- */
+        .process-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        /* Línea conectora horizontal (solo visible en escritorio) */
+        .process-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: #e0e0e0;
+            z-index: 0;
+            display: none; /* Se activa en media query */
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: #f9f9f9; /* Para tapar la línea si pasa por detrás */
+            padding: 10px;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: #002244;
+            color: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0 auto 20px auto;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .process-step:hover .step-icon { transform: scale(1.1); background: #d4af37; color: #002244; }
+
+        .step-content h3 { font-size: 1.2em; margin-bottom: 10px; color: #333; }
+        .step-content p { font-size: 0.9em; color: #666; }
+
+        /* Flechas entre pasos */
+        .arrow-down { font-size: 2em; color: #d4af37; display: block; margin: 10px 0; }
+
+        /* --- ESTILOS MOSAICO DE SERVICIOS (GRID DE BOTONES) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-left: 5px solid #002244;
+            padding: 30px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .service-btn:hover {
+            border-left-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #002244;
+        }
+
+        .service-btn:hover h3, .service-btn:hover p { color: white; }
+
+        .service-btn h3 { margin-top: 0; font-size: 1.4em; color: #002244; }
+        .service-btn p { font-size: 0.95em; color: #555; margin-bottom: 0; }
+        
+        .cta-container { text-align: center; margin-top: 50px; padding: 40px; background: #e9ecef; border-radius: 8px; }
+        .btn-main { background: #d4af37; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1em; display: inline-block; }
+        .btn-main:hover { background: #b5952f; }
+
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+
+        /* Media Query para Escritorio (Activa la línea horizontal del proceso) */
+        @media (min-width: 900px) {
+            .process-wrapper::before { display: block; }
+            .arrow-down { display: none; } /* Ocultar flechas verticales en escritorio */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Nuestros Servicios</h1>
+    <p>Ingeniería, Geología y Valorización de Activos Mineros</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="propiedades.html">Propiedades</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="servicios.html" style="color: #d4af37;">Servicios</a>
+    <a href="inversionistas.html">Inversionistas</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
+
+<div class="container">
+    
+    <div class="section-title">
+        <h2>Metodología de Valorización</h2>
+        <p>Nuestro flujo de trabajo estandarizado para transformar datos crudos en activos valorizados y bancables.</p>
+    </div>
+
+    <div class="process-wrapper">
+        <div class="process-step">
+            <div class="step-icon">1</div>
+            <div class="step-content">
+                <h3>Recopilación</h3>
+                <p>Análisis de antecedentes históricos, topografía y visitas técnicas a terreno.</p>
+            </div>
+        </div>
+        <div class="arrow-down">&#8595;</div>
+
+        <div class="process-step">
+            <div class="step-icon">2</div>
+            <div class="step-content">
+                <h3>Exploración & QA/QC</h3>
+                <p>Muestreo sistemático, geofísica y validación de bases de datos.</p>
+            </div>
+        </div>
+        <div class="arrow-down">&#8595;</div>
+
+        <div class="process-step">
+            <div class="step-icon">3</div>
+            <div class="step-content">
+                <h3>Modelamiento 3D</h3>
+                <p>Construcción de sólidos geológicos y estimación de leyes.</p>
+            </div>
+        </div>
+        <div class="arrow-down">&#8595;</div>
+
+        <div class="process-step">
+            <div class="step-icon">4</div>
+            <div class="step-content">
+                <h3>Valorización</h3>
+                <p>Categorización de recursos y evaluación económica preliminar.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 50px 0;">
+
+    <div class="section-title">
+        <h2>Catálogo de Servicios</h2>
+        <p>Soluciones técnicas modulares adaptadas a la etapa de su proyecto minero.</p>
+    </div>
+
+    <div class="services-grid">
+        <a href="contacto.html?servicio=estimacion" class="service-btn">
+            <h3>Estimación de Recursos</h3>
+            <p>Evaluación de tonelaje y ley mediante métodos geoestadísticos (Kriging, IDW) para determinar el potencial real.</p>
+        </a>
+
+        <a href="contacto.html?servicio=qaqc" class="service-btn">
+            <h3>Auditoría QA/QC</h3>
+            <p>Control de calidad para bases de datos de sondajes y muestreo, asegurando integridad para inversionistas.</p>
+        </a>
+
+        <a href="contacto.html?servicio=modelamiento" class="service-btn">
+            <h3>Modelamiento Geológico 3D</h3>
+            <p>Visualización espacial de cuerpos mineralizados y litología utilizando software especializado.</p>
+        </a>
+
+        <a href="contacto.html?servicio=due_diligence" class="service-btn">
+            <h3>Due Diligence Minero</h3>
+            <p>Revisión técnica independiente para procesos de compra/venta de propiedades mineras (M&A).</p>
+        </a>
+
+        <a href="contacto.html?servicio=informes" class="service-btn">
+            <h3>Reportes Técnicos (NI 43-101)</h3>
+            <p>Generación de informes estandarizados para validar recursos ante bolsas de valores y bancos.</p>
+        </a>
+
+        <a href="contacto.html?servicio=topografia" class="service-btn">
+            <h3>Topografía & Drones</h3>
+            <p>Levantamiento de superficie de alta precisión y fotogrametría para planificación de faenas.</p>
+        </a>
+    </div>
+
+    <div class="cta-container">
+        <h3>¿Necesita una cotización a medida?</h3>
+        <p>Analizamos la información disponible de su proyecto para proponer el plan de trabajo más eficiente.</p>
+        <a href="contacto.html" class="btn-main">Contactar al Equipo Técnico</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 TRM ANDES SpA | La Serena, Chile</p>
+</footer>
+
+</body>
+</html>
