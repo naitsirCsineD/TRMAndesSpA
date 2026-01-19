@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios y Valorización | TRM ANDES SpA</title>
+    <title>Servicios de Exploración | TRM ANDES SpA</title>
     <style>
-        /* --- ESTILOS GENERALES (Iguales al Index) --- */
+        /* --- ESTILOS GENERALES (Mismos de tu sitio) --- */
         body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; background-color: #f9f9f9; }
         
         header { 
-            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.6)), 
-                        url('cordilleradeandes-2-800-l.jpg'); /* Asegúrate de tener la imagen o cambiarla */
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.7)), 
+                        url('https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; 
             background-position: center;
             color: white; 
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center; 
         }
         
         header h1 { margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+        header p { color: #d4af37; font-weight: bold; margin-top: 10px; font-size: 1.2em; }
         
         nav { display: flex; justify-content: center; gap: 20px; padding: 15px; background: #002244; flex-wrap: wrap; }
         nav a { color: white; text-decoration: none; font-weight: bold; font-size: 1.1em; }
         nav a:hover { text-decoration: underline; color: #d4af37; }
 
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-        .section-title { text-align: center; margin-bottom: 40px; color: #002244; }
-        .section-title h2 { font-size: 2em; margin-bottom: 10px; }
-        .section-title p { color: #666; max-width: 700px; margin: auto; }
+        .section-title { text-align: center; margin-bottom: 50px; color: #002244; }
+        .section-title h2 { font-size: 2.2em; margin-bottom: 10px; }
+        .section-title p { color: #666; max-width: 700px; margin: auto; font-size: 1.1em; }
 
-        /* --- ESTILOS DEL DIAGRAMA DE FLUJO (PROCESS FLOW) --- */
+        /* --- DIAGRAMA DE FLUJO INTEGRAL --- */
         .process-wrapper {
             display: flex;
             justify-content: space-between;
@@ -40,7 +41,6 @@
             position: relative;
         }
 
-        /* Línea conectora horizontal (solo visible en escritorio) */
         .process-wrapper::before {
             content: '';
             position: absolute;
@@ -50,7 +50,7 @@
             height: 4px;
             background: #e0e0e0;
             z-index: 0;
-            display: none; /* Se activa en media query */
+            display: none; 
         }
 
         .process-step {
@@ -59,7 +59,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            background: #f9f9f9; /* Para tapar la línea si pasa por detrás */
+            background: #f9f9f9; 
             padding: 10px;
         }
 
@@ -84,62 +84,70 @@
 
         .step-content h3 { font-size: 1.2em; margin-bottom: 10px; color: #333; }
         .step-content p { font-size: 0.9em; color: #666; }
-
-        /* Flechas entre pasos */
         .arrow-down { font-size: 2em; color: #d4af37; display: block; margin: 10px 0; }
 
-        /* --- ESTILOS MOSAICO DE SERVICIOS (GRID DE BOTONES) --- */
+        /* --- NUEVO GRID DE SERVICIOS (Basado en tu desglose de costos) --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .service-btn {
+        .service-card {
             background: white;
-            border: 1px solid #ddd;
-            border-left: 5px solid #002244;
-            padding: 30px;
+            border: 1px solid #eee;
+            border-top: 4px solid #002244;
+            padding: 0;
             text-decoration: none;
             color: #333;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .service-btn:hover {
-            border-left-color: #d4af37;
+        .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            background: #002244;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-top-color: #d4af37;
         }
 
-        .service-btn:hover h3, .service-btn:hover p { color: white; }
+        .card-header { padding: 25px 25px 10px 25px; }
+        .card-header h3 { margin: 0; font-size: 1.3em; color: #002244; }
+        .card-header .subtitle { color: #d4af37; font-size: 0.85em; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
-        .service-btn h3 { margin-top: 0; font-size: 1.4em; color: #002244; }
-        .service-btn p { font-size: 0.95em; color: #555; margin-bottom: 0; }
+        .card-body { padding: 10px 25px 25px 25px; flex-grow: 1; }
+        .card-body ul { padding-left: 20px; margin-top: 10px; color: #555; }
+        .card-body li { margin-bottom: 8px; font-size: 0.95em; }
+
+        .card-footer {
+            background: #f4f4f4;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #002244;
+            border-top: 1px solid #eee;
+        }
         
-        .cta-container { text-align: center; margin-top: 50px; padding: 40px; background: #e9ecef; border-radius: 8px; }
-        .btn-main { background: #d4af37; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1em; display: inline-block; }
-        .btn-main:hover { background: #b5952f; }
+        .cta-container { text-align: center; margin-top: 60px; padding: 50px; background: #002244; color: white; border-radius: 8px; }
+        .btn-main { background: #d4af37; color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1em; display: inline-block; margin-top: 20px; transition: 0.3s;}
+        .btn-main:hover { background: #ffffff; color: #002244; }
 
         footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
 
-        /* Media Query para Escritorio (Activa la línea horizontal del proceso) */
         @media (min-width: 900px) {
             .process-wrapper::before { display: block; }
-            .arrow-down { display: none; } /* Ocultar flechas verticales en escritorio */
+            .arrow-down { display: none; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Nuestros Servicios</h1>
-    <p>Ingeniería, Geología y Valorización de Activos Mineros</p>
+    <h1>Servicios de Exploración Minera</h1>
+    <p>Soluciones Integrales para Campañas de Sondaje y Valorización</p>
 </header>
 
 <nav>
@@ -154,16 +162,16 @@
 <div class="container">
     
     <div class="section-title">
-        <h2>Metodología de Valorización</h2>
-        <p>Nuestro flujo de trabajo estandarizado para transformar datos crudos en activos valorizados y bancables.</p>
+        <h2>Ciclo Completo de Exploración</h2>
+        <p>Ofrecemos la ejecución técnica de todas las fases necesarias para certificar recursos minerales, desde la gestión de permisos hasta el reporte final.</p>
     </div>
 
     <div class="process-wrapper">
         <div class="process-step">
             <div class="step-icon">1</div>
             <div class="step-content">
-                <h3>Recopilación</h3>
-                <p>Análisis de antecedentes históricos, topografía y visitas técnicas a terreno.</p>
+                <h3>Permisos & Acceso</h3>
+                <p>Preparación del terreno y validación legal.</p>
             </div>
         </div>
         <div class="arrow-down">&#8595;</div>
@@ -171,8 +179,8 @@
         <div class="process-step">
             <div class="step-icon">2</div>
             <div class="step-content">
-                <h3>Exploración & QA/QC</h3>
-                <p>Muestreo sistemático, geofísica y validación de bases de datos.</p>
+                <h3>Sondajes</h3>
+                <p>Gestión operativa de perforación (DDH).</p>
             </div>
         </div>
         <div class="arrow-down">&#8595;</div>
@@ -180,8 +188,8 @@
         <div class="process-step">
             <div class="step-icon">3</div>
             <div class="step-content">
-                <h3>Modelamiento 3D</h3>
-                <p>Construcción de sólidos geológicos y estimación de leyes.</p>
+                <h3>Geología & Lab</h3>
+                <p>Logging, muestreo y QA/QC analítico.</p>
             </div>
         </div>
         <div class="arrow-down">&#8595;</div>
@@ -189,61 +197,131 @@
         <div class="process-step">
             <div class="step-icon">4</div>
             <div class="step-content">
-                <h3>Valorización</h3>
-                <p>Categorización de recursos y evaluación económica preliminar.</p>
+                <h3>Recursos</h3>
+                <p>Modelamiento y Estimación de Reservas.</p>
             </div>
         </div>
     </div>
 
-    <hr style="border: 0; border-top: 1px solid #eee; margin: 50px 0;">
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 60px 0;">
 
     <div class="section-title">
-        <h2>Catálogo de Servicios</h2>
-        <p>Soluciones técnicas modulares adaptadas a la etapa de su proyecto minero.</p>
+        <h2>Catálogo de Servicios Técnicos</h2>
+        <p>Externalice etapas críticas de su proyecto con nuestro equipo especializado. Basado en estándares para campañas de 3,000m+.</p>
     </div>
 
     <div class="services-grid">
-        <a href="contacto.html?servicio=estimacion" class="service-btn">
-            <h3>Estimación de Recursos</h3>
-            <p>Evaluación de tonelaje y ley mediante métodos geoestadísticos (Kriging, IDW) para determinar el potencial real.</p>
-        </a>
+        
+        <div class="service-card">
+            <div class="card-header">
+                <span class="subtitle">Fase 1: Preparación</span>
+                <h3>Gestión de Propiedad y Permisos</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Gestión y pago de patentes mineras.</li>
+                    <li>Tramitación de Cartas de Pertinencia / DIA.</li>
+                    <li>Acuerdos de servidumbre y acceso.</li>
+                    <li>Topografía de detalle con Dron (Fotogrametría).</li>
+                </ul>
+            </div>
+            <div class="card-footer">Desde Fase Inicial</div>
+        </div>
 
-        <a href="contacto.html?servicio=qaqc" class="service-btn">
-            <h3>Auditoría QA/QC</h3>
-            <p>Control de calidad para bases de datos de sondajes y muestreo, asegurando integridad para inversionistas.</p>
-        </a>
+        <div class="service-card">
+            <div class="card-header">
+                <span class="subtitle">Fase 2: Operaciones</span>
+                <h3>Gestión de Campañas de Sondaje</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Supervisión de contratistas de perforación (DDH/RC).</li>
+                    <li>Construcción de plataformas y caminos.</li>
+                    <li>Gestión de agua y piscinas de lodo.</li>
+                    <li>Logística de campamento y personal de campo.</li>
+                </ul>
+            </div>
+            <div class="card-footer">Ejecución en Terreno</div>
+        </div>
 
-        <a href="contacto.html?servicio=modelamiento" class="service-btn">
-            <h3>Modelamiento Geológico 3D</h3>
-            <p>Visualización espacial de cuerpos mineralizados y litología utilizando software especializado.</p>
-        </a>
+        <div class="service-card">
+            <div class="card-header">
+                <span class="subtitle">Fase 3: Geología</span>
+                <h3>Logging y Muestreo Técnico</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Mapeo geológico (Logging) geotécnico y litológico.</li>
+                    <li>Corte de testigos (sierra diamantada).</li>
+                    <li>Muestreo sistemático y embolsado.</li>
+                    <li>Medición de densidad (Specific Gravity).</li>
+                </ul>
+            </div>
+            <div class="card-footer">Core Shack Management</div>
+        </div>
 
-        <a href="contacto.html?servicio=due_diligence" class="service-btn">
-            <h3>Due Diligence Minero</h3>
-            <p>Revisión técnica independiente para procesos de compra/venta de propiedades mineras (M&A).</p>
-        </a>
+        <div class="service-card">
+            <div class="card-header">
+                <span class="subtitle">Fase 4: Calidad</span>
+                <h3>Gestión de Laboratorio y QA/QC</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Cadena de custodia de muestras.</li>
+                    <li>Inserción de Blancos, Estándares y Duplicados.</li>
+                    <li>Gestión de análisis (Fire Assay / ICP).</li>
+                    <li>Validación de bases de datos geoquímicas.</li>
+                </ul>
+            </div>
+            <div class="card-footer">Control de Calidad</div>
+        </div>
 
-        <a href="contacto.html?servicio=informes" class="service-btn">
-            <h3>Reportes Técnicos (NI 43-101)</h3>
-            <p>Generación de informes estandarizados para validar recursos ante bolsas de valores y bancos.</p>
-        </a>
+        <div class="service-card">
+            <div class="card-header">
+                <span class="subtitle">Fase 5: Gabinete</span>
+                <h3>Estimación de Recursos</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Modelamiento geológico 3D (Sólidos).</li>
+                    <li>Análisis variográfico y geoestadístico.</li>
+                    <li>Estimación de leyes y tonelaje (Kriging/IDW).</li>
+                    <li>Categorización de recursos (Ind/Inf).</li>
+                </ul>
+            </div>
+            <div class="card-footer">Entregable Final</div>
+        </div>
 
-        <a href="contacto.html?servicio=topografia" class="service-btn">
-            <h3>Topografía & Drones</h3>
-            <p>Levantamiento de superficie de alta precisión y fotogrametría para planificación de faenas.</p>
-        </a>
+        <div class="service-card" style="border-top-color: #d4af37;">
+            <div class="card-header">
+                <span class="subtitle" style="color:#002244;">Servicio Integral</span>
+                <h3>Project Management (Turnkey)</h3>
+            </div>
+            <div class="card-body">
+                <p style="font-size: 0.95em; color: #555; margin-bottom: 10px;">
+                    Nos hacemos cargo de toda la campaña de exploración. Usted define el presupuesto, nosotros entregamos el modelo de recursos.
+                </p>
+                <ul>
+                    <li>Control presupuestario (Capex/Opex).</li>
+                    <li>Reportabilidad semanal a inversionistas.</li>
+                    <li>Gestión integral de seguridad y ambiente (HSEC).</li>
+                </ul>
+            </div>
+            <div class="card-footer" style="background: #002244; color: white;">Llave en Mano</div>
+        </div>
+
     </div>
 
     <div class="cta-container">
-        <h3>¿Necesita una cotización a medida?</h3>
-        <p>Analizamos la información disponible de su proyecto para proponer el plan de trabajo más eficiente.</p>
-        <a href="contacto.html" class="btn-main">Contactar al Equipo Técnico</a>
+        <h3>¿Listo para cuantificar su yacimiento?</h3>
+        <p>Nuestro equipo está listo para desplegarse en terreno y transformar sus hectáreas en recursos medidos.</p>
+        <a href="contacto.html" class="btn-main">Solicitar Presupuesto Técnico</a>
     </div>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 TRM ANDES SpA | La Serena, Chile</p>
+    <p>&copy; 2026 TRM ANDES SpA | Expertos en Exploración Minera</p>
 </footer>
 
 </body>
